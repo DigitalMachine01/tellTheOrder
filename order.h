@@ -1,8 +1,3 @@
-#include<stdio.h>
-#include<stdlib.h>
-
-#define Bigger(a,b) ((a)>(b)?(a):(b))
-
 typedef struct trend_t{
   int start;
   int end;
@@ -15,8 +10,8 @@ typedef enum
   F,
 }Bool;
 
-int numbers[10];
+int numbers[10] = {1, 2, 3, 4, 7, 6, 5, 4, 3, 2};
 
 void getnumbers(void);
 
-void segregate(int *);
+void identify(void);
