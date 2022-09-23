@@ -2,7 +2,8 @@
 #include<stdlib.h>
 #include "order.h"
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
 
   getnumbers();
 
@@ -25,7 +26,7 @@ void getnumbers(void)
 void identify(void)
 {
   Bool d_end_i_start, i_end_d_start;
-  int i = 0, d = 0, j = 0, k, i_num = -1, d_num = -1;
+  int i = -1, d = -1, j = 0, k, i_num = -1, d_num = -1;
   int max_inc = 0, max_dec = 0;
 
   trend increment[5] = {{-1,-1,-1},{-1,-1,-1},{-1,-1,-1},{-1,-1,-1},{-1,-1,-1}};
@@ -43,37 +44,37 @@ void identify(void)
   }
   else
   {
-    i_end_d_start = F;
+    i_end_d_start = T;
     d_end_i_start = F;
   }
 
   while(j<9)
   {
-    if(numbers[j]>numbers[j+1])
+    if(numbers[j]>=numbers[j+1])
     {
       if(i_end_d_start == T)
       {
+        d++;
         decrement[d].start = j;
-        i++;
         i_end_d_start = F;
       }
       else
       {
-        decrement[d].end = j;
+        decrement[d].end = j+1;
         d_end_i_start = T;
       }
     }
-    else if (numbers[j]<numbers[j+1])
+    else if (numbers[j]<=numbers[j+1])
     {
       if(d_end_i_start == T)
       {
+        i++;
         increment[i].start = j;
-        d++;
         d_end_i_start = F;
       }
       else
       {
-        increment[i].end = j;
+        increment[i].end = j+1;
         i_end_d_start = T;
       }
     }
@@ -99,7 +100,7 @@ void identify(void)
   if(max_inc > max_dec)
   {
     printf("\nIncreasing order:\t");
-    for(k=increment[i_num].start; k <= increment[i_num].end; k++)
+    for(k = increment[i_num].start; k <= increment[i_num].end; k++)
     {
       printf("%d\t",numbers[k]);
     }
@@ -108,7 +109,7 @@ void identify(void)
   else if(max_inc < max_dec)
   {
     printf("\nDecreasing order:\t");
-    for(k=decrement[i_num].start; k <= decrement[i_num].end; k++)
+    for(k = decrement[d_num].start; k <= decrement[d_num].end; k++)
     {
       printf("%d\t",numbers[k]);
     }
