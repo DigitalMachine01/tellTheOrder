@@ -13,3 +13,14 @@ IV. Go in a while loop through the array, and capture the start and end indices 
 V. After that go in a loop to determine maximum trend lenght between incremement and decrement trends, with that capture the index (i_num, d_num) of the structure array that has the max length.
 
 VI. Print the largest trend and its nature on the output screen.
+
+
+Benefits of the code..
+
+Write Comments
+
+Dynamic allocation, linked list, CLI Iterface, Doppler effect
+
+Increasing and decresing trend - make it as the member of the structure
+
+Go through Jasmine Parser
